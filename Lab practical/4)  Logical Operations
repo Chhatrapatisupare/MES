@@ -1,26 +1,39 @@
-(a) Addition
-asmMOV A, #25H
-MOV R0, #12H
-ADD A, R0       ; Result = 37H
-HERE: SJMP HERE
-
-
-(b) Subtraction
-asmMOV A, #50H
-MOV R1, #20H
-SUBB A, R1
+(a) Logical AND
+asmMOV A, #0F5H
+MOV R0, #0A3H
+ANL A, R0
 SJMP $
 
 
-(c) Multiplication
-asmMOV A, #12H
-MOV B, #05H
-MUL AB
+(b) Logical OR
+asmMOV A, #55H
+MOV R1, #AAH
+ORL A, R1
 SJMP $
 
 
-(d) Division
-asmMOV A, #40H
-MOV B, #08H
-DIV AB
+(c) Logical XOR
+asmMOV A, #5AH
+MOV R2, #3CH
+XRL A, R2
+SJMP $
+
+
+(d) Complement and Clear
+asmMOV A, #96H
+CPL A
+CLR C
+SJMP $
+
+
+(e) Rotate Left/Right
+asmMOV A, #09H
+RL A
+RR A
+SJMP $
+
+
+(f) Swap Nibbles
+asmMOV A, #3CH
+SWAP A
 SJMP $
