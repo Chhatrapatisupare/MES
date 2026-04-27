@@ -1,0 +1,26 @@
+(a) Addition
+asmMOV A, #25H
+MOV R0, #12H
+ADD A, R0       ; Result = 37H
+HERE: SJMP HERE
+
+
+(b) Subtraction
+asmMOV A, #50H
+MOV R1, #20H
+SUBB A, R1
+SJMP $
+
+
+(c) Multiplication
+asmMOV A, #12H
+MOV B, #05H
+MUL AB
+SJMP $
+
+
+(d) Division
+asmMOV A, #40H
+MOV B, #08H
+DIV AB
+SJMP $
