@@ -1,12 +1,16 @@
 (1 ms Delay)
-MOV TMOD, #01H      ; Timer0, Mode1
-MOV TH0, #0FCH      ; Load 1ms value (65536-1000=64536=FC18H)
-MOV TL0, #018H
-SETB TR0            ; Start timer
-WAIT: JNB TF0, WAIT
-CLR TR0
-CLR TF0
-SJMP $
+ORG 0000H
+LJMP MAIN
+
+ORG 000BH      ; Timer0 ISR
+CPL P1.0
+RETI
+
+MAIN: MOV TMOD, #01H
+      MOV IE, #82H     ; Enable Timer0 Interrupt
+      SETB TR0
+      SJMP $
+END
 
 (Blink LED with Delay)
 START: MOV P1, #00H
