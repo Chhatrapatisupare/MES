@@ -1,24 +1,19 @@
 ORG 0000H
+
 START:
-    MOV P1, #OFFH
+    MOV A,#01H
+
+LOOP:
+    MOV P1,A
     ACALL DELAY
-    MOV P1, #COH
-    ACALL DELAY
-    SIMP START
+    RL A
+    SJMP LOOP
 
 DELAY:
-    MOV R6,#5
-D2: MOV R6, D2
-RET
+    MOV R6,#255
+H1: MOV R7,#255
+H2: DJNZ R7,H2
+    DJNZ R6,H1
+    RET
 
-Flowing Right LED pattern
-ORG 0000H
-MOV A, #01H
-MAIN:
-    MOV P1, A
-    MOV R0, #0FFH
-WAIT:
-    DJNZ R0, WAIT
-    RR A          ; Rotate right
-    SJMP MAIN
 END
