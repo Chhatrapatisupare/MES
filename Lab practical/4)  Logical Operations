@@ -1,39 +1,39 @@
 (a) Logical AND
-asmMOV A, #0F5H
+MOV A, #0F5H
 MOV R0, #0A3H
 ANL A, R0
 SJMP $
 
 
 (b) Logical OR
-asmMOV A, #55H
+MOV A, #55H
 MOV R1, #AAH
 ORL A, R1
 SJMP $
 
 
 (c) Logical XOR
-asmMOV A, #5AH
+MOV A, #5AH
 MOV R2, #3CH
 XRL A, R2
 SJMP $
 
 
 (d) Complement and Clear
-asmMOV A, #96H
+MOV A, #96H
 CPL A
 CLR C
 SJMP $
 
 
 (e) Rotate Left/Right
-asmMOV A, #09H
+MOV A, #09H
 RL A
 RR A
 SJMP $
 
 
 (f) Swap Nibbles
-asmMOV A, #3CH
+MOV A, #3CH
 SWAP A
 SJMP $
